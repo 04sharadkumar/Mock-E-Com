@@ -1,5 +1,5 @@
 // frontend/src/api.js
-const API = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API = import.meta.env.VITE_API_URL || 'https://mock-e-com-f77v.onrender.com';
 
 export async function fetchProducts() {
   const r = await fetch(`${API}/api/products`);
