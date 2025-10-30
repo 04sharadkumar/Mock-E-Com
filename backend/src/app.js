@@ -12,10 +12,8 @@ const app = express();
 // 🧩 Allowed Origins (Frontend URLs)
 // -------------------------------
 const allowedOrigins = [
-  "http://localhost:5173", // local frontend
-  "https://bachat-bazaar-eight.vercel.app",
-  "https://bachat-bazaar-git-main-04sharadkumars-projects.vercel.app",
-  "https://bachat-bazaar-nn60pt1ik-04sharadkumars-projects.vercel.app"
+  "http://localhost:5173",
+ " https://mocke-comcart.netlify.app/"
 ];
 
 
