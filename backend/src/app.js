@@ -1,4 +1,4 @@
-
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -7,13 +7,46 @@ const db = require('./config/db');
 
 const app = express();
 
+
+// -------------------------------
+// 🧩 Allowed Origins (Frontend URLs)
+// -------------------------------
+const allowedOrigins = [
+  "http://localhost:5173", // local frontend
+  "https://bachat-bazaar-eight.vercel.app",
+  "https://bachat-bazaar-git-main-04sharadkumars-projects.vercel.app",
+  "https://bachat-bazaar-nn60pt1ik-04sharadkumars-projects.vercel.app"
+];
+
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true); // allow Postman or server-to-server requests
+      if (!allowedOrigins.includes(origin)) {
+        return callback(
+          new Error("CORS policy does not allow access from this origin"),
+          false
+        );
+      }
+      return callback(null, true);
+    },
+    credentials: true
+  })
+);
+
+
 // Middlewares
-app.use(cors());
+
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 // Initialize DB
 db.init();
+
+
+
+
 
 // Routes
 
