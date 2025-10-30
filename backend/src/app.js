@@ -12,6 +12,7 @@ const app = express();
 // -------------------------------
 const allowedOrigins = [
   "http://localhost:5173",
+  "https://mocke-comcart.netlify.app",
   "https://mock-e-com-eight.vercel.app",
   "https://mock-e-com-git-main-04sharadkumars-projects.vercel.app",
   "https://mock-e-2mnfdbq5x-04sharadkumars-projects.vercel.app",
